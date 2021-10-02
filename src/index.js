@@ -17,14 +17,44 @@ import App from './App';
 const httpLink = createHttpLink({
   uri: "https:crwn-clothing.com"
 })
-const
+const cache = new InMemoryCache();
+
+const client = new ApolloClient({
+  link : httpLink,
+  cache
+})
+
+
+
 ReactDOM.render(
+  <ApolloProvider client={client }>
   <Provider store={store}>
     <BrowserRouter>
       <PersistGate persistor={persistor}>
         <App />
       </PersistGate>
     </BrowserRouter>
-  </Provider>,
+  </Provider>
+  </ApolloProvider>,
   document.getElementById('root')
 );
+
+
+// client.query({
+//   query:gql`
+//   query {
+//     getCollectionsByTitle(title: "womens") {
+//       id
+//       title
+//       items {
+//         id
+//         name
+//         imageUrl
+        
+//       }
+//     }
+//   }
+//   `
+// }).then(
+// res => console.log(rer)
+// )

@@ -51,7 +51,7 @@ const CartIconContainer = ({ data : {itemCount} , toggleCartHidden}) => (
 // import { Mutation , Query} from 'react-apollo';
 // import { gql } from 'apollo-boost';
 
-// import CartIcon from './cart-icon.component';
+//import CartIcon from './cart-icon.component';
 
 
 // const TOGGLE_CART_HIDDEN = gql`
